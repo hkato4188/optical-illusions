@@ -10,12 +10,18 @@ animate();
 function animate(){
     ctx.clearRect(-width/2, -height/2, width, height)
     
+
+    ctx.save();
     for(let i=0; i<circleCount; i++){
         // spread circles by adding to offset based on PI
-        const offset = Date.now()/1000 + i + Math.PI / circleCount;
-        const x = Math.sin(offset) * width /2;
+        const offset = Date.now()/1000 + i * Math.PI / circleCount;
+        const x = Math.sin(offset) * height /2;
+
+        ctx.rotate(Math.PI/circleCount)
+
         drawCircle(x,0);
     }    
+    ctx.restore();
     requestAnimationFrame(animate);
 }
 
