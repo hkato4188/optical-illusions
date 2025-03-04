@@ -4,7 +4,7 @@ const {width, height} = myCanvas;
 
 // increase and decrease for visual aid
 // const circleCount = 200;
-const circleCount = 20;
+const circleCount = 200;
 
 ctx.translate(width/2, height/2);
 
@@ -25,17 +25,17 @@ function animate(){
         // const offset = Date.now()/1000 + 0.5 * i * Math.PI / circleCount;
 
         // what if you do not add a large number to the offset and multiply by i (curling effect)?
-        // Odd numbers close the loop eliminates teh curcling effect
+        // Odd numbers close the loop eliminates the curcling effect
         // const offset = Date.now()/1000 + 3 * i * Math.PI / circleCount;
         
         // Craziest
         // const s = Math.sin(Date.now()/1000);
-        // const s = 1 +Math.sin(Date.now()/1000);
-        // const offset = Date.now()/1000 + s * i * Math.PI / circleCount;
+        const s = 1 +Math.sin(Date.now()/1000);
+        const offset = Date.now()/1000 + s * i * Math.PI / circleCount;
 
 
         // Code for circle
-        const offset = Date.now()/1000 + i * Math.PI / circleCount;
+        // const offset = Date.now()/1000 + i * Math.PI / circleCount;
         
         
         const x = Math.sin(offset) * height /2;
@@ -58,6 +58,6 @@ function drawCircle(x,y,radius=20){
     ctx.arc(x, y, radius, 0, Math.PI*2);
     
     // change ctx draw method to stroke and only fill one circle
-    ctx.stroke()
-    // ctx.fill();
+    // ctx.stroke()
+    ctx.fill();
 }
